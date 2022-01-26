@@ -8,23 +8,37 @@ namespace Pichugin_Test_UABContourLab
         static void Main(string[] args)
         {
             Console.WriteLine("Введите ряд чисел через пробел и нажмите Enter:");
-            int[] numbersArray = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-            Array.Sort(numbersArray);
-
-            List<int> newNumbersList = GetNewNumbersList(numbersArray);
-
-            if (newNumbersList.Count == 0)
+            try
             {
-                Console.WriteLine("\nВ списке нет непарных чисел!");
-            }
-            else
-            {
-                Console.WriteLine("\nНовая строка без парных чисел:");
+                int[] numbersArray = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                Array.Sort(numbersArray);
 
-                foreach (int i in newNumbersList)
+                if (numbersArray.Length == 1)
                 {
-                    Console.Write(i + " ");
+                    Console.WriteLine("\nВведенная строка имеет одно число: {0}", numbersArray[0]);
                 }
+                else
+                {
+                    List<int> newNumbersList = GetNewNumbersList(numbersArray);
+
+                    if (newNumbersList.Count == 0)
+                    {
+                        Console.WriteLine("\nВ списке нет непарных чисел!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nНовая строка без парных чисел:");
+
+                        foreach (int i in newNumbersList)
+                        {
+                            Console.Write(i + " ");
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Не было введено не одного числа!");
             }
 
             Console.ReadKey();
