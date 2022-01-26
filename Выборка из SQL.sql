@@ -1,4 +1,4 @@
-SELECT em1.chief_id ID_руководителя, em1.name ФИО, em1.salary ЗП, de.name Отдел FROM Employee AS em1
+SELECT em1.chief_id DepartmentHeadID, em1.name FullName, em1.salary Salary, de.name Department FROM Employee AS em1
 INNER JOIN Employee AS em2
 ON em1.chief_id = em2.id
 INNER JOIN Department AS de
