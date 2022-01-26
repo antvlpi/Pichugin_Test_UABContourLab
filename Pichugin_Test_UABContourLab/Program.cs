@@ -46,16 +46,16 @@ namespace Pichugin_Test_UABContourLab
 
         public static List<int> GetNewNumbersList(int[] numbersArray)
         {
-            List<int> newNumbersList = new List<int>();
+            List<int> newNumbersList = new List<int>(); // List т.к. заведомо неизвестно какой размер будет у коллекции
 
             for (int i = 0; i < numbersArray.Length - 1; i++)
             {
-                // Проверяем пары
+                // Проверяем на парность
                 if (numbersArray[i] == numbersArray[i + 1])
                 {
                     i++;
 
-                    // Закидываем в List, последний элемент, если для него нет пары
+                    // Закидываем в List, последний элемент массива, если для него нет пары и предыдущие два числа были Парные
                     if (i == numbersArray.Length - 2)
                     {
                         newNumbersList.Add(numbersArray[i + 1]);
@@ -67,6 +67,7 @@ namespace Pichugin_Test_UABContourLab
                 {
                     newNumbersList.Add(numbersArray[i]);
 
+                    // Закидываем в List, последний элемент, если для него нет пары и предыдущие два числа Не парные
                     if (i == numbersArray.Length - 2)
                     {
                         newNumbersList.Add(numbersArray[i + 1]);
