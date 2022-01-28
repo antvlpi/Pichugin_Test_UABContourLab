@@ -38,7 +38,7 @@ namespace Pichugin_Test_UABContourLab
             }
             catch
             {
-                Console.WriteLine("Не было введено не одного числа!");
+                Console.WriteLine("Строка не соотвутствует требованиям ввода!");
             }
 
             Console.ReadKey();
